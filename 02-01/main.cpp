@@ -6,6 +6,20 @@
 using namespace std;
 
 template<typename T>
+std::string FormatValue(T v)
+{
+	//float型の場合はfを付けて表示
+    if constexpr (std::is_same_v<T, float>)
+    {
+        return std::format("{}f", v);
+    }
+    else
+    {
+        return std::format("{}", v);
+    }
+}
+
+template<typename T>
 T Min(T a, T b)
 {
 	return a < b ? a : b;
@@ -14,8 +28,12 @@ T Min(T a, T b)
 template<typename T>
 void PrintMin(T a, T b)
 {
-	const char* type = typeid(T).name();
-	string result = format("Type: {} -> Min({}, {}) = {}\n", type, a, b, Min(a, b));
+	string result = format("Type: {} -> Min({}, {}) = {}\n", 
+		typeid(T).name(),
+		FormatValue(a),
+		FormatValue(b), 
+		Min(FormatValue(a), FormatValue(b))
+	);
 
 	cout << result << endl;
 }
