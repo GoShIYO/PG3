@@ -15,9 +15,9 @@ template<typename T>
 void PrintMin(T a, T b)
 {
 	const char* type = typeid(T).name();
-	string result = std::format("Type: {} -> Min({}, {}) = {}\n", type, a, b, Min(a, b));
+	string result = format("Type: {} -> Min({}, {}) = {}\n", type, a, b, Min(a, b));
 
-	std::cout << result << std::endl;
+	cout << result << endl;
 }
 
 int main()
