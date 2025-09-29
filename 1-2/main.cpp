@@ -36,9 +36,9 @@ int main()
 	sort(data.begin(), data.end());
 
 	int i = 1;
-	for (const auto& c : data)
+	for (const auto& s : data)
 	{
-		printf("%02d. %s\n",i, c.c_str());
+		printf("%02d: 学籍番号 %s\n",i, s.c_str());
         i++;
 	}
 
