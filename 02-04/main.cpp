@@ -2,8 +2,9 @@
 #include<stdlib.h>
 #include<time.h>
 #include<Windows.h>
+#include<functional>
 
-using JudgeFn = void(int, int);
+using JudgeFn = std::function<void(int,int)>;
 
 void DelayReveal(JudgeFn fn, unsigned int delayMs, int roll, int userGuess)
 {
@@ -13,24 +14,10 @@ void DelayReveal(JudgeFn fn, unsigned int delayMs, int roll, int userGuess)
 		int delay = delayMs / 3;
 		Sleep(delay);
 		printf(".");
-        ms += delay;
+		ms += delay;
 	}
-    printf("\n");
+	printf("\n");
 	fn(roll, userGuess);
-}
-
-void ShowResult(int roll, int userGuess)
-{
-	if (roll % 2 == userGuess)
-	{
-		printf("正解\n");
-	}
-	else
-	{
-		printf("不正解\n");
-	}
-	printf("出目は %d でした\n", roll);
-
 }
 
 int main()
@@ -50,17 +37,28 @@ int main()
 			continue;
 		}
 		
-		DelayReveal(ShowResult, 3000, roll, input);
+		DelayReveal([&](int roll, int userGuess)
+			{
+				if (roll % 2 == userGuess)
+				{
+					printf("正解\n");
+				}
+				else
+				{
+					printf("不正解\n");
+				}
+				printf("出目は %d でした\n", roll);
+			}, 3000, roll, input);
 
-        printf("--------------------------------------------------\n");
-        printf("もう一度お試しですか？(y/n)\n");
-        char endInput;
-        scanf_s(" %c", &endInput, 1);
+		printf("--------------------------------------------------\n");
+		printf("もう一度お試しですか？(y/n)\n");
+		char endInput;
+		scanf_s(" %c", &endInput, 1);
 
-        if (endInput == 'y')
-        {
-            continue;
-        }
+		if (endInput == 'y')
+		{
+			continue;
+		}
 		else if (endInput == 'n')
 		{
 			printf("終了\n");
