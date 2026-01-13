@@ -224,7 +224,7 @@ void StageScene::Player::Update()
         while (shootTimer >= kShootCooldown)
         {
             mBullets.emplace_back(x, y, damage);
-            shootTimer -= kShootCooldown;
+            shootTimer = 0.0f;
         }
     }
     else if (shootTimer > kShootCooldown)
@@ -259,7 +259,8 @@ void StageScene::Enemy::Update()
 {
     x += vx;
     y += vy;
-    if (x < 0 || x > 1280)
+    float halfSize = size * 0.5f;
+    if (x < halfSize || x > 1280 - halfSize)
     {
         vx *= -1;
     }
@@ -270,7 +271,7 @@ void StageScene::Enemy::Update()
         Bullet b(x, y, damage);
         b.vy = 5.0f;
         mBullets.emplace_back(std::move(b));
-        shootTimer -= kShootCooldown;
+        shootTimer = 0.0f;
     }
 
     for (auto it = mBullets.begin(); it != mBullets.end();)
