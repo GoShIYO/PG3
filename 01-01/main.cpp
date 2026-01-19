@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <list>
-
+#include <cstring>
 using namespace std;
 
 void PrintStations(list<const char*>& stations, const char* year)
@@ -18,7 +18,7 @@ void InsertStation(list<const char*>& stations, const char* targetStation, const
 {
 	for (auto it = stations.begin(); it != stations.end(); ++it)
 	{
-		if (*it == targetStation)
+		if (strcmp(*it,targetStation) == 0)
 		{
 			++it;
 			it = stations.insert(it, intsertStation);
