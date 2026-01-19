@@ -29,8 +29,8 @@ void InsertStation(list<const char*>& stations, const char* targetStation, const
 int main()
 {
 	list<const char*> stations = {
-		"Tokyo", "Knda", "Akihabara", "Okachimachi", "Ueno", "Uguisudani", "Nippori", /*"Nishi-Nippori",*/"Tabata", 
-		"Komagome", "Sugamo", "Otsuka", "Ikebukuro", "Mejiro", "Tkadanobaba", "Shin-Okubo", "Shinjuku", "Yoyogi", 
+		"Tokyo", "Kanda", "Akihabara", "Okachimachi", "Ueno", "Uguisudani", "Nippori", /*"Nishi-Nippori",*/"Tabata", 
+		"Komagome", "Sugamo", "Otsuka", "Ikebukuro", "Mejiro", "Takadanobaba", "Shin-Okubo", "Shinjuku", "Yoyogi", 
 		"Harajuku", "Shibuya", "Ebisu", "Meguro", "Gotanda", "Osaki", "Shinagawa", /*"Tkanawa Gateway",*/"Tamachi", 
 		"Hamamatsucho", "Shimabashi", "Yurakucho" 
 	};
