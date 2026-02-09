@@ -2,9 +2,8 @@
 #include<stdlib.h>
 #include<time.h>
 #include<Windows.h>
-#include<functional>
 
-using JudgeFn = std::function<void(int,int)>;
+using JudgeFn = void(*)(int, int);
 
 void DelayReveal(JudgeFn fn, unsigned int delayMs, int roll, int userGuess)
 {
@@ -36,8 +35,8 @@ int main()
 			printf("0か1を入力してください\n");
 			continue;
 		}
-		
-		DelayReveal([&](int roll, int userGuess)
+
+		DelayReveal([](int roll, int userGuess)
 			{
 				if (roll % 2 == userGuess)
 				{

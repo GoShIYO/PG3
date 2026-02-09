@@ -8,15 +8,14 @@ using namespace std;
 template<typename T>
 std::string FormatValue(T v)
 {
-	//float型の場合はfを付けて表示
-    if constexpr (std::is_same_v<T, float>)
-    {
-        return std::format("{}f", v);
-    }
-    else
-    {
-        return std::format("{}", v);
-    }
+	if constexpr (std::is_same_v<T, float>)
+	{
+		return std::format("{}f", v);
+	}
+	else
+	{
+		return std::format("{}", v);
+	}
 }
 
 template<typename T>
@@ -28,11 +27,11 @@ T Min(T a, T b)
 template<typename T>
 void PrintMin(T a, T b)
 {
-	string result = format("Type: {} -> Min({}, {}) = {}\n", 
+	string result = format("Type: {} -> Min({}, {}) = {}\n",
 		typeid(T).name(),
 		FormatValue(a),
-		FormatValue(b), 
-		Min(FormatValue(a), FormatValue(b))
+		FormatValue(b),
+		FormatValue(Min(a, b))
 	);
 
 	cout << result << endl;
