@@ -31,7 +31,7 @@ int main()
 	list<const char*> stations = {
 		"Tokyo", "Kanda", "Akihabara", "Okachimachi", "Ueno", "Uguisudani", "Nippori", /*"Nishi-Nippori",*/"Tabata", 
 		"Komagome", "Sugamo", "Otsuka", "Ikebukuro", "Mejiro", "Takadanobaba", "Shin-Okubo", "Shinjuku", "Yoyogi", 
-		"Harajuku", "Shibuya", "Ebisu", "Meguro", "Gotanda", "Osaki", "Shinagawa", /*"Tkanawa Gateway",*/"Tamachi", 
+		"Harajuku", "Shibuya", "Ebisu", "Meguro", "Gotanda", "Osaki", "Shinagawa", /*"Takanawa Gateway",*/"Tamachi", 
 		"Hamamatsucho", "Shimabashi", "Yurakucho" 
 	};
 	//1970年
@@ -41,7 +41,7 @@ int main()
 	//2019年
 	PrintStations(stations, "2019");
 	//高輪ゲードウェイを追加
-	InsertStation(stations, "Shinagawa", "Tkanawa Gateway");
+	InsertStation(stations, "Shinagawa", "Takanawa Gateway");
 	//2022年
 	PrintStations(stations, "2022");
 
